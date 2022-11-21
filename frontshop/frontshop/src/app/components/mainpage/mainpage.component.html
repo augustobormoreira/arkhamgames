@@ -1,0 +1,9 @@
+<options-bar></options-bar>
+<app-gamescarousel></app-gamescarousel>
+<button type="button" class="btn fixed-bottom fw-bold d-flex flex-column align-items-center custom-sizing" data-bs-toggle="modal" data-bs-target="#exampleModal"
+    (click)="open()">
+    <fa-icon [icon]="faSquarePlus" class="fa-3x"></fa-icon>
+    ADICIONAR
+</button>
+<app-addproduct #myModal></app-addproduct>
+<app-product-listing></app-product-listing>

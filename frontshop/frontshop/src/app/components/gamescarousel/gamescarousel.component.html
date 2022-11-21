@@ -1,0 +1,32 @@
+<section id="current-game" class="text-light p-5 text-start text-sm-start main-game-area custom-bg-color">
+  <div id="test" class="container height-control border border-white border-3 rounded">
+      <div class="row height-control">
+          <div class="d-sm-flex">
+              <div class="col-sm-5 d-flex flex-column justify-content-end">
+                  <h1>{{ curGameDisplayed.productName }}</h1>
+                  <h4><span class="text-warning">Preço: {{ curGameDisplayed.productPrice | currency: 'BRL' }}</span></h4>
+                  <p class="fs-6">{{curGameDisplayed.productDescription}}</p>
+              </div>
+             
+      </div>
+  </div>
+  </div>
+</section>
+
+  <section class="games-promo-added custom-bg-color container-fluid align-items-center">
+    <h3 class="fw-bold text-light ms-4 pt-4">Jogos</h3>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let game of games">
+        <ng-template carouselSlide>
+          <div class="card width-card"(click)="setDesiredGame(game)">
+            <img [src]="" alt="">
+            <img [src]="game.productIconImageUrl" class="card-img-top custom-size" alt="...">
+            <div class="card-body">
+              <h6 class="card-title">{{game.productName}}</h6>
+               <p class="card-text">{{game.productPrice | currency:'USD' }}</p>
+            </div>
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </section>

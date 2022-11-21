@@ -1,0 +1,40 @@
+.custom-bg-color {
+    background-color: #001524;
+    width: 100vw;
+}
+
+.height-control {
+    height: 100%;
+}
+
+
+.main-game-area {
+    width: 100%;
+    height: 90vh;
+}
+
+.game-selected {
+    height: 100%;
+    width: 60%;
+    background-color: white;
+    position: relative;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+.games-promo-added {
+    height: 65vh;
+    width: 100%;
+}
+
+.width-card {
+    width: 13rem;
+}
+
+.custom-size{
+    width: 100%;
+    height: 40vh;
+}

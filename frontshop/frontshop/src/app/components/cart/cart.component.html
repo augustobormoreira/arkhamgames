@@ -1,0 +1,61 @@
+<ng-container *ngIf="productList.length != 0 && !purchaseEnded">
+   <div class="container">
+    <div class="card-table">
+        <div class="cart-product">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Preço</th>
+                        <th>Descrição</th>
+                        <th>Categorias</th>
+                        <th>Remover</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of productList">
+                        <td> {{product.productName}} </td>
+                        <td> {{product.productPrice}} </td>
+                        <td> {{product.productDescription}} </td>
+                        <td> {{product.productCategories}} </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="removeItem(product)"> <fa-icon [icon]="faTrash"></fa-icon> </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td><button class="btn btn-danger" (click)="removeAllItems()" >Esvaziar Carrinho</button></td>
+                        <td><button class="btn btn-success" (click)="finalizePurchase()" >Finalizar Compra</button></td>
+                        <td> <strong>Total: R${{totalPrice | number: '1.2-2'}}</strong>  </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+   </div>
+</ng-container>
+
+
+
+
+<ng-container *ngIf="productList.length == 0 && !purchaseEnded">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">Meu carrinho</h5>
+        </div>
+        <div class="center">
+            <h4>Meu carrinho está vazio =(.</h4>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="purchaseEnded">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">Meu carrinho</h5>
+        </div>
+        <div class="center">
+            <h4>Sua compra foi finalizada!</h4>
+        </div>
+    </div>
+</ng-container>
