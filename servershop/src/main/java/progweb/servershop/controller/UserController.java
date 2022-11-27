@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 import progweb.servershop.model.Client;
 import progweb.servershop.model.Employee;
+import progweb.servershop.model.LoginSession;
 import progweb.servershop.model.User;
+import progweb.servershop.model.UserDTO;
+import progweb.servershop.service.LoginSessionService;
 import progweb.servershop.service.UserService;
 
 
@@ -27,6 +30,7 @@ import progweb.servershop.service.UserService;
 public class UserController {
     
     private final UserService userService;
+    private final LoginSessionService loginSessionService;
 
     @GetMapping("/allClients")
     public ResponseEntity<List<Client>> getAllClients(){
@@ -57,6 +61,18 @@ public class UserController {
         Optional<User> newUser = this.userService.findById(cpf);
 
         return new ResponseEntity<>(newUser, HttpStatus.OK);
+    }
+
+    @PostMapping("/findUser")
+    public ResponseEntity<LoginSession> getSpecificUser(@RequestBody UserDTO userDTO){
+        User existingUser = this.userService.findUser(userDTO.getUsername());
+        if(existingUser.getPassword().equals(userDTO.getPassword())){
+            LoginSession curSessh = loginSessionService.addNewSession(userDTO);
+            return new ResponseEntity<>(curSessh, HttpStatus.OK);
+        }else
+        {
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
+        }
     }
 
 }

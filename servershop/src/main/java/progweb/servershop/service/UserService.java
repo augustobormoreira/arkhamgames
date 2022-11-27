@@ -51,6 +51,10 @@ public class UserService {
         return this.userRepository.findById(id);
     }
 
+    public User findUser(String username){
+        return this.userRepository.findClientByUsername(username);
+    }
+
     
 
    

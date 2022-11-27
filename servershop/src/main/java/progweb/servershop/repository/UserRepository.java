@@ -26,5 +26,8 @@ public interface UserRepository extends JpaRepository<User, String> {
     @Query("from Client")
     User findEmployeeByCpf();
 
+    @Query("from Client")
+    User findClientByUsername(String username);
+
     
 }

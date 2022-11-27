@@ -15,7 +15,7 @@ import { OptionsBarComponent } from './components/shared/options-bar/options-bar
 import { LoginComponent } from './components/login/login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductListingComponent } from './components/product-listing/product-listing.component';
 import { ListItemComponent } from './components/product-listing/list-item/list-item.component';
@@ -42,6 +42,7 @@ import { CartComponent } from './components/cart/cart.component';
     CarouselModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     FormsModule,
     NgbModule
   ],
